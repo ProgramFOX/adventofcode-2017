@@ -24,8 +24,8 @@ mod day23;
 mod day24;
 mod day25;
 
-pub fn call_function(day: usize, part_one: bool, input: String) -> String {
-    let functions: [fn(String) -> String; 50] = [
+pub fn call_function(day: usize, part_one: bool, input: &str) -> String {
+    let functions: [fn(&str) -> String; 50] = [
         day1::part1,
         day1::part2,
         day2::part1,

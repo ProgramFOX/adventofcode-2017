@@ -22,7 +22,7 @@ fn main() {
     io::stdin()
         .read_line(&mut input)
         .expect("Failed to read from stdin");
-    input = String::from(input.trim());
+    let input = input.trim();
 
     println!("{}", aoclib::call_function(day, part_one, input));
 }

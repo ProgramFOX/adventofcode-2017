@@ -1,4 +1,4 @@
-pub fn part1(input: String) -> String {
+pub fn part1(input: &str) -> String {
     let mut sum = 0;
 
     for i in 0..input.len() {
@@ -12,7 +12,7 @@ pub fn part1(input: String) -> String {
     sum.to_string()
 }
 
-pub fn part2(input: String) -> String {
+pub fn part2(input: &str) -> String {
     let mut sum = 0;
 
     for i in 0..input.len() {
