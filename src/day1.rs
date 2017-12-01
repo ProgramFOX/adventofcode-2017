@@ -13,5 +13,15 @@ pub fn part1(input: String) -> String {
 }
 
 pub fn part2(input: String) -> String {
-    String::from("not yet implemented")
+    let mut sum = 0;
+
+    for i in 0..input.len() {
+        let next_index = (i + input.len() / 2) % input.len();
+        let current_char = input.chars().nth(i).unwrap();
+        if current_char == input.chars().nth(next_index).unwrap() {
+            sum += current_char.to_digit(10).unwrap();
+        }
+    }
+
+    sum.to_string()
 }
