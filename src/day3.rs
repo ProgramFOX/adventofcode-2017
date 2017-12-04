@@ -66,5 +66,7 @@ pub fn part1(input: &str) -> String {
 }
 
 pub fn part2(input: &str) -> String {
-    String::from("No code for this one; the answer can be acquired from OEIS: http://oeis.org/A141481")
+    String::from(
+        "No code for this one; the answer can be acquired from OEIS: http://oeis.org/A141481",
+    )
 }
