@@ -51,5 +51,29 @@ pub fn part1(input: &str) -> String {
 }
 
 pub fn part2(input: &str) -> String {
-    String::from("not yet implemented")
+    let mut memory: Vec<u32> = input.split(" ").map(|s| s.parse().unwrap()).collect();
+
+    let mut previous = vec![];
+    previous.push(stringify_memory(&memory));
+    let mut steps = 1;
+    loop {
+        let mem_clone = memory.clone();
+        let max = mem_clone.iter().max().unwrap();
+        let highest_index = memory.iter().position(|a| a == max).unwrap();
+        let value = memory[highest_index];
+        memory[highest_index] = 0;
+
+        let mut index = (highest_index + 1) % 16;
+        for x in 0..value {
+            memory[index] += 1;
+            index = (index + 1) % 16;
+        }
+
+        let s = stringify_memory(&memory);
+        if previous.contains(&s) {
+            return (steps - previous.iter().position(|t| t == &s).unwrap() as i32).to_string();
+        }
+        previous.push(s);
+        steps += 1;
+    }
 }
